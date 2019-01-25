@@ -1,0 +1,27 @@
+{
+  "name": "rest-datasource",
+  "description": "",
+  "dependencies": {
+    "apollo-datasource-rest": "0.1.5",
+    "apollo-server": "2.1.0",
+    "apollo-server-lambda": "^2.3.1",
+    "graphql": "14.0.2"
+  },
+  "license": "MIT",
+  "main": "src/graphql.js",
+  "scripts": {
+    "start": "nodemon src/graphql.js localhost 4000",
+    "start:lambda": "netlify-lambda serve src",
+    "build": "netlify-lambda build src",
+    "schema:publish": "apollo schema:publish --endpoint=http://localhost:9000/graphql",
+    "schema:start-and-publish": "start-server-and-test start:lambda http-get://localhost:9000/graphql?query={__typename} schema:publish",
+    "schema:check": "apollo schema:check --endpoint=http://localhost:9000/graphql",
+    "schema:start-and-check": "start-server-and-test start:lambda http-get://localhost:9000/graphql?query={__typename} schema:check"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/graphql": "14.0.1",
+    "netlify-lambda": "^1.3.0",
+    "nodemon": "1.18.4"
+  }
+}

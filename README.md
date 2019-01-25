@@ -1,2 +1,2 @@
-# pokemon-wiki-apollo-lambda
-Netlify Function for Pokemon-wiki-apollo
+# pokemon-wiki-apollo
+Backend of pokemon-wiki-react
